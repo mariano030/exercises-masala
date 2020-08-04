@@ -2,14 +2,12 @@
 
 function logType(arg) {
     if (typeof arg == "number") {
-        // differenciate between cases
         if (isNaN(arg)) {
             console.log("not a number!");
         } else {
             console.log(typeof arg + "!");
         }
     } else if (typeof arg == "object") {
-        // differnciate between cases
         if (arg === null) {
             console.log("null!");
         } else if (Array.isArray(arg)) {
@@ -44,11 +42,8 @@ console.log(">>array");
 logType([]);
 
 //exercise 2
-/*
-Then create a new empty object b and use a for..in loop to iterate over all of a's properties. 
-Give b properties whose names are the values from a and whose values are the property names from a. 
-The result should be an object that looks like this:
-*/
+console.log("     exercise 2");
+
 var a = {
     Berlin: "Germany",
     Paris: "France",
@@ -58,9 +53,7 @@ var a = {
 var b = {};
 
 for (var prop in a) {
-    // var prop is declaring a variable
     b[a[prop]] = prop;
-    //console.log(a[prop]); // gives me all the values of the props of my object
 }
 
 console.log("now a");
@@ -69,6 +62,7 @@ console.log("now b");
 console.log(b);
 
 // exercise 3
+console.log("     exercise 3");
 
 for (var i = 10; i >= 1; i--) {
     console.log(i);
