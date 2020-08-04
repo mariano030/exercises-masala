@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body {
+    background-color: grey;
+    color: white;
+}
+
+header {
+    background-color: white;
+    height: 40px;
+    margin: 0px;
+    padding: 5px;
+    position: relative;
+}
+
+#logo {
+    height: 30px;
+    width: 30px;
+    float: left;
+}
+
+#menu {
+    height: 50px;
+    width: 50px;
+    float: right;
+    top: 0px;
+    right: 0px;
+}
+
+#menu_img {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    right: 0px;
+}
+
+#logo_img {
+    height: 30px;
+    width: auto;
+}
+
+.containter {
+    width: 80vw;
+    height: 3000px;
+    background-color: tomato;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+h3 {
+    position: absolute;
+}
+
+h3:nth-child(1) {
+    bottom: 0;
+    right: 0;
+}
+
+h3:nth-child(2) {
+    top: 0;
+    left: 0;
+}
+
+h3:nth-child(3)) {
+    bottom: 0;
+    left: 0;
+}
+
+img {
+    width: 300px;
+    position: fixed;
+    z-index: 3;
+}
