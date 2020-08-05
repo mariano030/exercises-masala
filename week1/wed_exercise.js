@@ -52,7 +52,6 @@
     console.log(aMillion(1000000));
 
     // bonus exercise
-    console.log("bogus exercise");
 
     var getTotaler = function () {
         let sum = 0;
@@ -62,29 +61,9 @@
         };
     };
 
-    var totaler2 = getTotaler();
-
     var totaler = getTotaler();
-    /*
+
     totaler(1); //1
     totaler(2); //3
-    totaler(5); //8 */
-
-    console.log(totaler(1)); //1
-    console.log(totaler(2)); //3
-    console.log(totaler(5)); //8
-
-    console.log(totaler2(10));
-    /*
-    var getCounter = function (num) {
-        return function () {
-            return num++;
-        };
-    };
-
-    var counter = getCounter(3);
-    console.log(counter()); //3
-    console.log(counter()); //4
-    console.log(counter()); //5
-    */
+    totaler(5); //8
 })();
