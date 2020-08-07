@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: grey;
+    position: relative;
+}
+
+#head {
+    position: absolute;
+    border: 3px solid black;
+    top: 153px;
+    left: 129px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+#spine {
+    position: absolute;
+    top: 253px;
+    left: 175px;
+    height: 250px;
+    width: 5px;
+    background-color: black;
+}
+
+.arm {
+    position: absolute;
+    top: 320px;
+    left: 177px;
+    height: 5px;
+    width: 180px;
+    background: black;
+}
+.arm.left {
+    transform: rotate(235deg);
+    transform-origin: 0px;
+}
+
+.arm.right {
+    transform: rotate(-35deg);
+    transform-origin: left;
+}
+
+.leg {
+    position: absolute;
+    top: 500px;
+    left: 177px;
+    height: 5px;
+    width: 180px;
+    background: black;
+}
+
+.leg.left {
+    transform: rotate(-235deg);
+    transform-origin: 0px;
+}
+
+.leg.right {
+    transform: rotate(35deg);
+    transform-origin: left;
+}

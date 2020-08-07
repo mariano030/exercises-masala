@@ -23,5 +23,3 @@ numbers.forEach(function (i) {
 numbers = {};
 
 numbers.y = doubleX;
-
-console.log(numbers.y);
