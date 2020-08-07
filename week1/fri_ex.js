@@ -30,16 +30,57 @@ console.log("squa:", square.getArea()); //16
 
 // exercise 2
 
-var myString = "Hallo. Das hier ist Dein String!";
+//var myString = "Hallo. Das hier ist Dein String!";
+
+var myString = "fuenf";
 
 function invertCase(str) {
     var letterArr = str.split("");
-    console.log("letterArr", letterArr);
-    letterArr.forEach(function () {
-        if (letterArr == letterArr.toUpperCase) {
-            console.log("was already upper");
+    var letterArrOrg = str.split("");
+    var letterArrRtn = [];
+    var inverted = [];
+    var invertedString = "";
+    //console.log("letterArr", letterArr);
+    for (var i = 0; i < letterArr.length; i++) {
+        //console.log(i);
+        if (letterArr[i].toUpperCase() == letterArrOrg[i]) {
+            //console.log(letterArr[i], i, "was already upper");
+            inverted.push(letterArrOrg[i].toLowerCase());
+        } else if (letterArr[i].toLowerCase() == letterArrOrg[i]) {
+            inverted.push(letterArrOrg[i].toUpperCase());
         }
-    });
+    }
+    //console.log(inverted);
+    for (var o = 0; o < inverted.length; o++) {
+        invertedString = invertedString.concat(inverted[o]);
+    }
+    return invertedString;
 }
 
 console.log(invertCase(myString));
+
+// bonus exercise
+// not working yet...
+/*
+function Countdown(sec) {
+    (this.seconds = sec),
+        (this.start = function (sec) {
+            if (sec > 0) {
+                console.log("in if");
+                var secLeft = sec;
+                for (var i = 1; i <= sec; i++) {
+                    console.log("in for");
+                    secLeft = sec - i;
+                    logRemaining = function () {
+                        console.log(secLeft);
+                    };
+                    console.log("loglog: ", secLeft);
+                    setTimeout(logRemaining, 1);
+                }
+            }
+        },
+};
+
+testing = new Countdown(5);
+console.log(testing.start());
+*/
