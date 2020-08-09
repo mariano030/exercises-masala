@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    padding: 10px;
+}
+
+div #top-bar {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+img#logo {
+    height: 50px;
+    padding: 10px;
+    float: left;
+}
+
+img#nav {
+    height: 50px;
+    padding: 10px;
+    float: right;
+}
+
+/*welcome*/
+
+#welcome {
+    position: relative;
+    width: 100%;
+}
+
+h1 {
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+    left: 30%;
+    color: white;
+    font-style: italic;
+    font-size: 40px;
+}
+
+#welcome #spices {
+    width: 100%;
+    filter: brightness(80%);
+}
+
+#button {
+    position: absolute;  
+    width: 220px;
+    top: 55%;
+    left: 42%;
+    z-index: 2;
+    padding: 5px 10px;
+    background-color: yellow;
+    border: 4px solid #daa520;
+    border-radius: 30px;
+    color: #daa520;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*main */
+
+main {
+    position: relative;
+    display: inline-block;
+    top: -10px;
+    width: 100%;
+    height: 500px;
+    padding: 0px 200px;
+    background-color: grey;
+}
+
+section {
+    position: relative;
+    top: 4vh;
+    left: 100px;
+}
+
+div.text-block {
+    position: relative;
+    width: 85%;
+    padding: 0px 0px 10px;
+    vertical-align: top;
+}
+
+.img-icon {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    padding: 0px 5px;
+}
+
+section div {
+    padding: 00px 0px 0px 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+h3 {
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+#left {
+    padding: 0px 5px 5px 5px;
+    display: inline-block;
+    width: 30vw;
+}
+
+#right {
+    display: inline-block;
+    width: 30vw;
+}
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    h1 {
+        left: 5%;
+        font-size: 20px;
+        width: 250x;
+    }
+    #button {
+        font-size: 12px;
+        border: 4px solid #daa520;
+        width: 120px;
+        top: 70%;
+        left: 33%;
+    }
+
+    main {
+        width: 100%;
+        height: 500px;
+        padding: 0px 5px;
+    }
+
+    .img-icon {
+        width: 35px;
+        height: 35px;
+        top: 0px;
+        padding: 0px 5px;
+    }
+
+    div.text-block {
+        width: 200px;
+        padding: 0px 0px 10px;
+    }
+
+    #left {
+        width: 90vw;
+    }
+
+    #right {
+        width: 90vw;
+    }
+
+    h3 {
+        font-size: 12pt;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    p {
+        font-size: 10pt;
+        margin: 0px;
+        padding: 0px;
+    }
+    section {
+        position: relative;
+        top: 4vh;
+        left: 8px;
+        width: 90%;
+        background-color: yellowd;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: dimgray;
+        color: rgba(240, 249, 240, 0.918);
+    }
+    main {
+        background-color: rgb(49, 49, 49);
+    }
+    h1 {
+        color: rgba(240, 249, 240, 0.918);
+    }
+
+    #welcome #spices {
+    width: 100%;
+    filter: brightness(50%);
+
+}
