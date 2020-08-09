@@ -3,44 +3,68 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
-        <title>CSS LAB - Recreated</title>
+        <link rel="stylesheet" href="stylesheet.css" />
+        <title>Document</title>
     </head>
     <body>
-        <header class="main-header">
-            <div id="logo">
-                <img id="logo_img" src="assets/spiced.png" alt="spiced logo" />
+        <header>
+            <div id="top-bar">
+                <img id="logo" src="assets/spiced.png" />
             </div>
-            <nav id="menu"><img id="menu_img" src="assets/hamburgermenu.svg" alt="menu"></a></nav>
+            <div id="nav">
+                <img id="nav" src="assets/hamburgermenu.svg" />
+            </div>
         </header>
-        <main class="container">
-            <section>
-                <header class="welcome">
-                    <img src="assets/spices.jpg">
-                    <h1>Welcome to Spiced and the Future.</h1>
-                    <p class="button">Get started today</p>
-                </header>
-            </section>
-                <div id="bottom-part">
-                   <section class="infos">
-                        <article id="article1">
-                       <ul>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                        </ul>
-                        </article>
-                        <article id="article2">
-                       <ul>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                        </ul>
-                        </article>
-                   </section>
+        <div id="welcome">
+            <h1>Welcome to Spiced and the Future.</h1>
+            <img id="spices" src="assets/spices.jpg" />
+            <div id="button">Get started today</div>
+        </div>
+        <main>
+            <section id="left">
+                <div>
+                    <img class="img-icon" src="assets/cat.svg" />
+                    <div class="text-block">
+                        <h3>Best in class features</h3>
+                        <p>
+                            Nobody does this stuff better than us. You can bet
+                            your life on that.
+                        </p>
+                    </div>
                 </div>
+                <div>
+                    <img class="img-icon" src="assets/swim.svg" />
+                    <div class="text-block">
+                        <h3>An Acquired Taste</h3>
+                        <p>
+                            It may take a little while for you to warm up to us
+                            but once you do you will never want to switch.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="right">
+                <div>
+                    <img class="img-icon" src="assets/world.svg" />
+                    <div class="text-block">
+                        <h3>Reliable Service</h3>
+                        <p>
+                            You can count on us to help you whenever you need
+                            it. We're talking around the clock service
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <img class="img-icon" src="assets/columns.svg" />
+                    <div class="text-block">
+                        <h3>No limits</h3>
+                        <p>
+                            There are absolutely no limits. We do not throttle.
+                            We do not cap.
+                        </p>
+                    </div>
+                </div>
+            </section>
         </main>
     </body>
 </html>
