@@ -50,7 +50,7 @@ document.addEventListener("keydown", function (e) {
         var r = generateRandomRGBColourNumber();
         var g = generateRandomRGBColourNumber();
         var b = generateRandomRGBColourNumber();
-        var randomColor = "rgb(" + r + "," + g + "," b + ")";
+        var randomColor = "rgb(" + r + "," + g + "," + b + ")";
         console.log(randomColor);
     }
 });
