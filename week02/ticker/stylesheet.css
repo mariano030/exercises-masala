@@ -20,9 +20,5 @@ body {
 
 #headlines a {
     padding-right: 30px;
-}
-
-#headlines:hover {
-    color: blue;
-    left: offsetLeft;
+    color: black;
 }

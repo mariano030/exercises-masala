@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: mintcream;
+}
+
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: midnightblue;
+}

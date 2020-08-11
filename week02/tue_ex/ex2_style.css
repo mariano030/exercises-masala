@@ -1,0 +1,12 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea {
+    width: 300px;
+    height: 150px;
+}
+
+button {
+    width: 305px;
+}

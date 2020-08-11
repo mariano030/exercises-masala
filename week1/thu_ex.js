@@ -36,7 +36,7 @@ function switcher(arr) {
     return newArr.reverse();
 }
 
-myArr = [1, 2, 3, 4];
+var myArr = [1, 2, 3, 4];
 console.log(switcher(myArr));
 //console.log("myArr after switcher:", myArr);
 
