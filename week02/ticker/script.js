@@ -32,12 +32,13 @@
     }
     move();
 
+    // MOUSE OVER
+
     for (var i = 0; i < linksArr.length; i++) {
         console.log("linksArr[i]", linksArr[i]);
         linksArr[i].addEventListener("mouseover", function (evt) {
             console.log("ein element mouseover triggered");
             // change styling here
-            var test = linksArr[i];
             evt.target.style.backgroundColor = "yellow";
             cancelAnimationFrame(reqId);
             console.log("wird ausgeführt");

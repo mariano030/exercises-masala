@@ -1,0 +1,14 @@
+body {
+    background: #ded0ad;
+}
+
+canvas {
+    display: inline-block;
+    border: 2px solid black;
+    background-color: white;
+}
+
+img {
+    position: relative;
+    float: right;
+}
