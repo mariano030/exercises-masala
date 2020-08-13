@@ -1,5 +1,7 @@
 body {
     background: #ded0ad;
+    height: 100vh;
+    overflow: hidden;
 }
 
 canvas {
@@ -8,7 +10,12 @@ canvas {
     background-color: white;
 }
 
+#small-canvas {
+    visibility: hidden;
+}
+
 img {
+    visibility: none;
     position: relative;
     float: right;
 }

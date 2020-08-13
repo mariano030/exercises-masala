@@ -67,24 +67,58 @@
     }
 
     //ctx.drawImage(smallCanvas, 100, 100);
+    var x = 100;
+    var y = 100;
+    x++;
+
+    ctx.drawImage(smallCanvas, x, y);
 
     //animate();
     function animate(what, x, y) {
         x++;
-        ctx.clearRect(0, 0);
+        ctx.clearRect(0, 0, 800, 800);
         ctx.drawImage(what, x, y);
-
         animate(what, x, y);
     }
     //animate(smallCanvas, 100, 100);
 
-    document.addEventListener("keypress", function (event) {
-        if ((event.keycode = 37)) {
+    function move(x, y, direction, value) {
+        x = x + value * direction;
+        y = y + value * direction;
+        ctx.clearRect(0, 0, 800, 800);
+        ctx.drawImage(smallCanvas, x, y);
+    }
+
+    document.addEventListener("keydown", function (event) {
+        // 40 = runter
+        // 38 = hoch
+        // 37 = links
+        // 39 = rechts
+        console.log("läuft");
+        if (event.keyCode == 37) {
             console.log("left");
-        } else if ((event.keycode = 38)) {
-            console.log("3888");
+            x = x - 5;
+            ctx.clearRect(0, 0, 800, 800);
+            ctx.drawImage(smallCanvas, x, y);
+        } else if (event.keyCode == 39) {
+            console.log("rechts");
+            x = x + 5;
+            ctx.clearRect(0, 0, 800, 800);
+            ctx.drawImage(smallCanvas, x, y);
+        } else if (event.keyCode == 38) {
+            console.log("hoch");
+            y = y - 5;
+            ctx.clearRect(0, 0, 800, 800);
+            ctx.drawImage(smallCanvas, x, y);
+        } else if (event.keyCode == 40) {
+            console.log("runter");
+            y = y + 5;
+            ctx.clearRect(0, 0, 800, 800);
+            ctx.drawImage(smallCanvas, x, y);
         }
-        console.log(event.keycode);
+
+        ctx.clearRect(0, 0, 800, 800);
+        ctx.drawImage(smallCanvas, x, y);
     });
 
     /*
@@ -103,3 +137,10 @@
         console.log("smallCanvas is loaded");
     });
 })();
+
+/* 
+<img
+            id="picasso"
+            src="https://i.pinimg.com/originals/8f/0e/07/8f0e07c1be55961b0774d21cb996c65e.jpg"
+        />
+         */
