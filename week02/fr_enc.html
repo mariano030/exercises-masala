@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="fr_enc_style.css" />
+    </head>
+    <body class="container">
+        <header>
+            Header
+        </header>
+        <aside class="left-sidebar"></aside>
+        <main>
+            MAIN
+            <p>
+                1fr stands for fractional unit. <div id="css">grid-template-*</div> can take px %
+                and fr as measurements.
+            </p>
+            <p>
+                grid-column: 1 / 4; ist the same as these two <div id="css">grid-column-start:
+                1; grid-column-end: 4; </div>
+            </p>
+
+            <p>
+                With <div id="css">grid-column: 1 / -1; </div>you are using -1 to address the last
+                column in the row.
+            </p>
+            <p>
+                You can use gird-template-columns: repeat(4, 1f); instead of
+                gird-template-columns: 1fr 1fr 1fr 1fr;
+            </p>
+            <p><div id="css">grid-auto-flow: row dense </div>
+            This will make the implicit elements fill the empty spots!</p>
+        </main>
+        <aside class="left-sidebar"></aside>
+        <footer>
+            Footer
+        </footer>
+    </body>
+</html>
