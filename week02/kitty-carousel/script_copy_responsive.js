@@ -4,57 +4,8 @@
     var current = 0;
     var timer;
     var isInTheMiddleOfAnimation;
-    var x;
+
     var start;
-
-    // ADD SWIPING
-
-    for (var i = 0; i < kitties.length; i++) {
-        (function (i) {
-            kitties[i].addEventListener("touchstart", function (e) {
-                console.log("touchstart triggered");
-                console.log(
-                    "e.changedTouches[0].pageX: ",
-                    e.changedTouches[0].pageX
-                );
-                start = e.changedTouches[0].pageX;
-            });
-            kitties[i].addEventListener("touchend", function (e) {
-                console.log("touchend triggered");
-                console.log(
-                    "e.changedTouches[0].pageX: ",
-                    e.changedTouches[0].pageX
-                );
-                if (start > e.changedTouches[0].pageX) {
-                    console.log("right direction");
-                    console.log("i", i);
-                    swiped(i);
-                } else {
-                    console.log("you swiped the wrong way, kiddo");
-                }
-            });
-        })(i);
-    }
-
-    function swiped(i) {
-        // check if animation is currently running
-        if (isInTheMiddleOfAnimation == true) {
-            console.log("you can't touch this, animation running");
-            return;
-        } else {
-            clearTimeout(timer);
-            if (i + 1 >= kitties.length) {
-                console.log("nächstes müsste wieder null sein");
-                i = 0;
-            } else {
-                console.log("es sind noch kittes übrig für i + 1");
-                i++;
-            }
-            console.log("calling moveKitties with i ");
-            console.log("i: ", i);
-            moveKitties(i, 5000);
-        }
-    }
 
     // EVENT LISTENER - is transition over?
     // return element that moved offscreen-left ot default (off right)
@@ -100,40 +51,6 @@
             });
         })(i);
     }
-    /*
-    // EVENT LISTENER TOUCH - was a dot clicked?
-    for (var i = 0; i < kitties.length; i++) {
-        // use iffe to get different scope = different index
-        (function (i) {
-            kitties[i].addEventListener("touchstart", function (e) {
-                console.log("TOUCHED i:", i);
-                // check if kitty on screen is same as clicked
-
-                // check if animation is currently running
-                if (isInTheMiddleOfAnimation == true) {
-                    // do nuthin'
-                    console.log(
-                        "YOU CAN'T TOCU THIS is in middle of animation"
-                    );
-                    return;
-                } else {
-                    // otherwise
-                    // reset timer (cancel already scheduled animation)
-                    console.log(
-                        "I am cancelling the  scheduled animation now!"
-                    );
-                    clearTimeout(timer);
-                    // start new animation with specific kitty (i)
-                    console.log("i am starting the new animation now");
-                    if (i + 1 == kitties.length) {
-                        i = 0;
-                    }
-                    moveKitties(i);
-                }
-            });
-        })(i);
-    }
-*/
 
     // SCHEDULE FIRST ANIMATION
     timer = setTimeout(moveKitties, 5000);
