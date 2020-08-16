@@ -4,7 +4,6 @@
     var current = 0;
     var timer;
     var isInTheMiddleOfAnimation;
-    var x;
     var start;
 
     // ADD SWIPING
@@ -28,7 +27,7 @@
                 if (start > e.changedTouches[0].pageX) {
                     console.log("right direction");
                     console.log("i", i);
-                    swiped(i);
+                    swipedWell(i);
                 } else {
                     console.log("you swiped the wrong way, kiddo");
                 }
@@ -36,7 +35,7 @@
         })(i);
     }
 
-    function swiped(i) {
+    function swipedWell(i) {
         // check if animation is currently running
         if (isInTheMiddleOfAnimation == true) {
             console.log("you can't touch this, animation running");
