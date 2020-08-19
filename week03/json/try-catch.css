@@ -8,9 +8,11 @@ body {
 }
 
 #contianer {
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -20,7 +22,8 @@ textarea {
     color: white;
 }
 
-#button {
+input {
+    margin: 20px;
     background-color: #a65a82;
     border: 1px solid #8c4c6e;
     color: white;

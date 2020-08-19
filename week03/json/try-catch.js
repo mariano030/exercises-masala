@@ -7,6 +7,8 @@ console.log("sane");
     var textArea = $("textarea");
     var button = $("#button");
 
+    var msg;
+
     button.on("click", function () {
         console.log("you clicked the button, be proud!");
         try {
@@ -21,6 +23,20 @@ console.log("sane");
 
     // exercise 2
 
+    var requestedNum;
+    var germanNumbers = [
+        "eins",
+        "zwei",
+        "drei",
+        "vier",
+        "fünf",
+        "sechs",
+        "sieben",
+        "acht",
+        "neun",
+        "zehn",
+    ];
+
     function askForNumber() {
         var num = prompt("Please enter a number between 1 and 10");
         if (num >= 1 && num <= 10 && num == parseInt(num)) {
@@ -31,9 +47,18 @@ console.log("sane");
 
     function translateNumberToGerman(number) {
         try {
-            askForNumber(number);
+            requestedNum = askForNumber(number);
+            window.alert(germanNumbers[requestedNum - 1]);
+            //console.log()
         } catch {
-            console.log(error);
+            window.alert("This is not a number...");
+            //console.log(error);
+            translateNumberToGerman();
+        } finally {
+            window.alert("In any case a beatiful language!");
         }
     }
+    $("#numbers").on("click", function () {
+        translateNumberToGerman();
+    });
 })();
