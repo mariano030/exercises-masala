@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body {
+    background-color: lightgray;
+}
+
+#contianer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#textarea {
+    border: 1px solid black;
+}

@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body {
+    background-color: #b3608c;
+}
+
+#contianer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+textarea {
+    border: 1px solid #8c4c6e;
+    background-color: #f283be;
+    color: white;
+}
+
+#button {
+    background-color: #a65a82;
+    border: 1px solid #8c4c6e;
+    color: white;
+}
