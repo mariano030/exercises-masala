@@ -23,9 +23,10 @@ textarea {
 }
 
 input {
-    padding: 3px 5px;
+    padding: 5px 8px;
     margin: 20px;
     background-color: #f9ab02;
     border: 1px solid #f2710f;
     color: #db4102;
 }
+

@@ -4,48 +4,57 @@
     var currentlyHigh;
 
     inputField.on("input", function () {
+        clearTimeout();
         if (inputField.val().length == 0) {
             console.log("shit's empty yo");
             countriesHtml = "";
+            resultsContainer.addClass("invisible");
         } else {
+            resultsContainer.removeClass("invisible");
             var inputValue = inputField.val();
             var results = [];
-            $.ajax({
-                url: "https://spicedworld.herokuapp.com/",
-                mehtod: "GET", // is default could be left out
-                data: {
-                    // <<-- the data object
-                    q: inputValue, // this is my query - "a" is hardcoded - make dynamic
-                },
-                success: function (results) {
-                    // *** SUCESS ***
-                    // use inputValue to compare with new input querry
-                    if (inputValue == inputField.val()) {
-                        console.log("results from success function", results);
-                        console.log("this.data", this.data); // in my own object does it work? unecessary!
+            setTimeout(function () {
+                $.ajax({
+                    url: "https://spicedworld.herokuapp.com/",
+                    mehtod: "GET", // is default could be left out
+                    data: {
+                        // <<-- the data object
+                        q: inputValue, // this is my query - "a" is hardcoded - make dynamic
+                    },
+                    success: function (results) {
+                        // *** SUCESS ***
+                        // use inputValue to compare with new input querry
+                        if (inputValue == inputField.val()) {
+                            console.log(
+                                "results from success function",
+                                results
+                            );
 
-                        if (results.length == 0) {
-                            console.log("results is 0 elements long");
-                            console.log("results.length == 0");
-                            countriesHtml =
-                                "<p>Sorry, no results. Try again!</p>";
-                        } else {
-                            console.log("results is longer than 0");
-                            var countriesHtml = "";
-                            for (var i = 0; i < results.length; i++) {
-                                console.log("results has: ", i);
-                                countriesHtml +=
-                                    "<p class='country'>" + results[i] + "</p>";
+                            if (results.length == 0) {
+                                console.log("results is 0 elements long");
+                                console.log("results.length == 0");
+                                countriesHtml =
+                                    "<p>Sorry, no results. Try again!</p>";
+                            } else {
+                                console.log("results is longer than 0");
+                                var countriesHtml = "";
+                                for (var i = 0; i < results.length; i++) {
+                                    console.log("results has: ", i);
+                                    countriesHtml +=
+                                        "<p class='country'>" +
+                                        results[i] +
+                                        "</p>";
+                                }
                             }
+                            resultsContainer.html(countriesHtml);
+                        } else {
+                            console.log("there is a new character in town");
+                            console.log("this", this);
+                            return;
                         }
-                        resultsContainer.html(countriesHtml);
-                    } else {
-                        console.log("there is a new character in town");
-                        console.log("this", this);
-                        return;
-                    }
-                },
-            });
+                    },
+                });
+            }, 125);
         }
     }); // closes "input" event
 
