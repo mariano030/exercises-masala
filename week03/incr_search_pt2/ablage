@@ -1,0 +1,265 @@
+(function (countries) {
+    // INPUT EVENT
+    // initial letters must be used, it's not absolute search
+    // to find United States the user must type Uni... and not States in example...
+
+    console.log("countries: ", countries);
+    console.log("inputField: ", inputField);
+
+    var inputField = $('input[name="search"]');
+    /* just showing how to target an input field by his name, we could of course use tag class or id */
+    console.log("inputField: ", inputField);
+    var resultsContainer = $(".results-container");
+    //console.log("resultsContainer: ", resultsContainer);
+
+    inputField.on("input", function () {
+        //console.log("input works!");
+        var inputValue = inputField.val();
+
+        if (inputValue == "") {
+            console.log("it's empty yo!");
+        } else {
+            //console.log("inputValue: ", inputValue);
+            var results = [];
+            for (var i = 0; i < countries.length; i++) {
+                if (
+                    countries[i]
+                        .toLowerCase()
+                        .indexOf(inputValue.toLowerCase()) === 0 // 0 sono le lettere battute dallo user, che siano una o
+                ) {
+                    // rewrite this logic so it works for every country in this array
+                    results.push(countries[i]);
+                } // closes if
+                if (results.length === 4) {
+                    console.log("break");
+                    break;
+                } // closes for
+            }
+            // loop through results to generate p tags
+            var countriesHtml = "";
+            for (var i = 0; i < results.length; i++) {
+                console.log(results[i]);
+                countriesHtml = "<p class='countries'>" + results[i] + "</p>";
+                console.log(countriesHtml);
+                console.log("loop loop");
+            }
+            console.log(countriesHtml);
+            resultsContainer.html("countriesHtml:", countriesHtml);
+            //console.log("results: ", results);
+        }
+    });
+
+    // 'Bosnia'.indexOf('a') // returns 5 because is the fifth letter
+    // 'Bosnia'.indexOf('B') // returns 0 first letter CASE SENSITIVE
+    // 'Bosnia'.indexOf('k') // returns -1 because does not exists
+    // 'Thailand'.indexOf('a') // returns just the first result, so 2 (although Thailand contains two As)
+    // 'Thailand'.indexOf('Thai') // returns 0 ! because it's matching all letters
+
+    // MOUSEOVER
+
+    // MOUSEDOWN
+
+    // KEYDOWN
+
+    // FOCUS
+    // focus means an input element is selected, usually a type field..  browser behaviour is usually a blue border
+    // if there's something typed in and the focus is on, the results should show
+
+    // BLUR
+    // is clicking outside of an input field and basically deselecting it, losing the blue border
+    // if there's something typed in and the focus is OFF, the results should NOT show
+})([
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Antigua and Barbuda",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bhutan",
+    "Bolivia",
+    "Bosnia and Herzegovina",
+    "Botswana",
+    "Brazil",
+    "Brunei Darussalam",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Cabo Verde",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Central African Republic",
+    "Chad",
+    "Chile",
+    "China",
+    "Colombia",
+    "Comoros",
+    "Congo",
+    "Costa Rica",
+    "Côte D'Ivoire",
+    "Croatia",
+    "Cuba",
+    "Cyprus",
+    "Czech Republic",
+    "Democratic People's Republic of Korea",
+    "Democratic Republic of the Congo",
+    "Denmark",
+    "Djibouti",
+    "Dominica",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "Equatorial Guinea",
+    "Eritrea",
+    "Estonia",
+    "Eswatini",
+    "Ethiopia",
+    "Fiji",
+    "Finland",
+    "France",
+    "Gabon",
+    "Gambia",
+    "Georgia",
+    "Germany",
+    "Ghana",
+    "Greece",
+    "Grenada",
+    "Guatemala",
+    "Guinea",
+    "Guinea Bissau",
+    "Guyana",
+    "Haiti",
+    "Honduras",
+    "Hungary",
+    "Iceland",
+    "India",
+    "Indonesia",
+    "Iran",
+    "Iraq",
+    "Ireland",
+    "Israel",
+    "Italy",
+    "Jamaica",
+    "Japan",
+    "Jordan",
+    "Kazakhstan",
+    "Kenya",
+    "Kiribati",
+    "Kuwait",
+    "Kyrgyzstan",
+    "Lao People’s Democratic Republic",
+    "Latvia",
+    "Lebanon",
+    "Lesotho",
+    "Liberia",
+    "Libya",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Madagascar",
+    "Malawi",
+    "Malaysia",
+    "Maldives",
+    "Mali",
+    "Malta",
+    "Marshall Islands",
+    "Mauritania",
+    "Mauritius",
+    "Mexico",
+    "Micronesia",
+    "Monaco",
+    "Mongolia",
+    "Montenegro",
+    "Morocco",
+    "Mozambique",
+    "Myanmar",
+    "Namibia",
+    "Nauru",
+    "Nepal",
+    "Netherlands",
+    "New Zealand",
+    "Nicaragua",
+    "Niger",
+    "Nigeria",
+    "North Macedonia",
+    "Norway",
+    "Oman",
+    "Pakistan",
+    "Palau",
+    "Panama",
+    "Papua New Guinea",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
+    "Qatar",
+    "Republic of Korea",
+    "Republic of Moldova",
+    "Romania",
+    "Russian Federation",
+    "Rwanda",
+    "Saint Kitts and Nevis",
+    "Saint Lucia",
+    "Saint Vincent and the Grenadines",
+    "Samoa",
+    "San Marino",
+    "Sao Tome and Principe",
+    "Saudi Arabia",
+    "Senegal",
+    "Serbia",
+    "Seychelles",
+    "Sierra Leone",
+    "Singapore",
+    "Slovakia",
+    "Slovenia",
+    "Solomon Islands",
+    "Somalia",
+    "South Africa",
+    "South Sudan",
+    "Spain",
+    "Sri Lanka",
+    "Sudan",
+    "Suriname",
+    "Sweden",
+    "Switzerland",
+    "Syrian Arab Republic",
+    "Tajikistan",
+    "Thailand",
+    "Timor-Leste",
+    "Togo",
+    "Tonga",
+    "Trinidad and Tobago",
+    "Tunisia",
+    "Turkey",
+    "Turkmenistan",
+    "Tuvalu",
+    "Uganda",
+    "Ukraine",
+    "United Arab Emirates",
+    "United Kingdom",
+    "United Republic of Tanzania",
+    "United States of America",
+    "Uruguay",
+    "Uzbekistan",
+    "Vanuatu",
+    "Venezuela",
+    "Viet Nam",
+    "Yemen",
+    "Zambia",
+    "Zimbabwe",
+]);
