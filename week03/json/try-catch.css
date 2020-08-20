@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #b3608c;
+    background-color: #db8002;
 }
 
 #contianer {
@@ -17,14 +17,15 @@ body {
 }
 
 textarea {
-    border: 1px solid #8c4c6e;
-    background-color: #f283be;
-    color: white;
+    border: 1px solid #f2710f;
+    background-color: #f9ab02;
+    color: #db4102;
 }
 
 input {
+    padding: 3px 5px;
     margin: 20px;
-    background-color: #a65a82;
-    border: 1px solid #8c4c6e;
-    color: white;
+    background-color: #f9ab02;
+    border: 1px solid #f2710f;
+    color: #db4102;
 }

@@ -7,8 +7,6 @@ console.log("sane");
     var textArea = $("textarea");
     var button = $("#button");
 
-    var msg;
-
     button.on("click", function () {
         console.log("you clicked the button, be proud!");
         try {
@@ -16,7 +14,7 @@ console.log("sane");
             window.alert("this is some prime JSON!");
         } catch {
             window.alert(
-                "i think you will have to take a close look, not valid JSON."
+                "i think you will have to take a closer look, not valid JSON."
             );
         }
     });
