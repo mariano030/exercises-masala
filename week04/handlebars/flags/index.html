@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Handlebars</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="countries">
+            <script id="countriesTemplate" type="text/x-handlebars-template">
+                <div class="country">
+                    <img
+                        src="https://restcountries.eu/data/afg.svg"
+                        alt="Flag"
+                    />
+                    <div class="container">
+                        <h4>
+                            {{name}} (افغانستان)
+                        </h4>
+                        <ul class="borders">
+                            {{#each borders}}
+                                <li>
+                                    {{. }}
+                                </li>
+                            {{/each}}
+                        </ul>
+                        <ul class="currencies">
+                            {{#each currencies}}
+                            <li>
+                                {{name}}, {{code}}, {{symbol}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </script>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

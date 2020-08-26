@@ -1,0 +1,38 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 3px;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.authors {
+    display: flex;
+    width: 500px;
+    background-color: lightgray;
+    width: 80%;
+}
+
+.image {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.text {
+    width: 100%;
+    margin: 30px;
+    background-color: inherit;
+}
+
+ul {
+    padding: 2px;
+    font-size: 0.8em;
+}

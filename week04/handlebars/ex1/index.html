@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Authors</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <script id="wichtig" type="text/x-handlebars-template">
+
+                {{#each authors}}
+            <div class="authors">
+                <div><img class="image" src="{{photo}}" alt=""></div>
+                <div class="text">
+                    <h3>{{name}}</h3>
+                    <p>Born: {{born}}</p>
+                    <p>Died: {{died}}</p>
+                    <p></p><i>"{{quote}}"</i></p>
+                            <h4>Famous works:</h4>
+                            <ul>
+                                {{#each selectedWritings}}
+                                <li>{{.}}</li>
+                                {{/each}}
+                            </ul>
+                </div>
+            </div>
+            {{/each}}
+        </script>
+        <div id="main-container"></div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+</html>

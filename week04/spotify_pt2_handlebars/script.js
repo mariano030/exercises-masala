@@ -13,6 +13,7 @@ console.log("sane...");
     var dropdownInput;
     var resultDivHtml;
     var infiniteScroll = false;
+    var nextDisplay;
 
     if (location.search.indexOf("?scroll=infinite") > -1) {
         console.log("location.search: ", location.search);
@@ -52,14 +53,15 @@ console.log("sane...");
                     console.log("ajax success...");
 
                     // IVANA TRICK resultsContainer.append(getResultsHtml(payload.items));
-                    getReslutsHtml(payload.items);
+                    getResultsHtml(payload.items);
                     if (infiniteScroll) {
                         // no next button
                     } else {
-                        setNextUrl(payload.next);
+                        anotherAjax(setNextUrl(payload.next));
+                        //$(".results-container").append(nextUrlHtml);
                         $(".next").on("click", function () {
                             console.log("you clicked");
-                            secondAjax();
+                            anotherAjax(nextUrl);
                         });
                     }
                     console.log(nextUrl);
@@ -74,105 +76,43 @@ console.log("sane...");
             }); // ajax end
         }
     }); // end submit listener
-    function twentyMore(nextUrl) {
-        $.ajax({
-            xhrFields: {
-                withCredentials: true,
-            },
-            url: nextUrl,
-            data: {
-                q: userInput,
-                type: dropdownInput,
-            },
-            success: function (payload) {
-                payload = payload.artists || payload.albums;
-                nextUrl = null;
-                image = null;
-                console.log("ajax success...");
-                if (payload.image) {
-                    console.log("image found");
-                    image = payload[0].image;
-                }
-                console.log(nextUrl);
-                console.log(payload);
-                console.log(payload.items[0].name);
-                console.log("image url?", payload.items[0].images[1].url);
-                // 3 things we need: external_url , images , name ??artist??
-                //console.log(payload.artists.items.eq(0).images);
-                //console.log(payload.artists.eq(0).items.eq(0).images);
-                // gonna run once everything went swell
-                if (payload.items.length < 0) {
-                    searchMsg = "Sorry, there are no results for " + userInput;
-                } else {
-                    searchMsg = "Displaying results for " + userInput;
-                }
-                searchMsgHtml =
-                    "<div class='results-msg'>" + searchMsg + "</div>";
-
-                //searchMsgHtml = "";
-
-                $(".results-container").append(searchMsgHtml);
-                for (var i = 0; i < payload.items.length; i++) {
-                    console.log(searchMsgHtml);
-                    //$("results-container").add(searchMsgHtml);
-                    h2 = payload.items[i].name;
-                    linkUrl = payload.items[i].external_urls.spotify;
-                    console.log(
-                        "payload.items[i].external_urls",
-                        payload.items[i].external_urls.spotify
-                    );
-                    console.log(
-                        "payload.items[i}.images[2]: ",
-                        payload.items[0].images[1].url
-                    );
-                    if (payload.items[i].images[i]) {
-                        console.log(payload.items[0].images[1].url);
-                        imageUrl = payload.items[i].images[1].url;
-                    } else {
-                        imageUrl = "assets/generic.png";
-                    }
-
-                    resultsDivHtml =
-                        "<div class='one-result-container hover'><div class='result-left'><a href='" +
-                        linkUrl +
-                        "' target='_blank'><img src='" +
-                        imageUrl +
-                        "' alt='image' /></a></div><div class='result-right'> <a href='" +
-                        linkUrl +
-                        "' target='_blank'> <h2>" +
-                        h2 +
-                        "</h2><p id='seartch-type'>" +
-                        "</p></div>";
-
-                    //$("results-container").add(searchMsgHtml);
-                    console.log(resultsDivHtml);
-                    $(".results-container").append(resultsDivHtml);
-                    setNextUrl(payload.next);
-                }
-            },
-        }); // ajax end
-    }
     function setNextUrl(next) {
         console.log("setNextUrl running");
+        console.log(next);
+        console.log("infinite scroll ist AUS");
         if (next) {
             console.log("gibt ein next");
             nextUrl = next.replace(
-                "https://api.spotify.com/v1/",
+                "https://api.spotify.com/v1/search",
                 "https://spicedify.herokuapp.com/spotify"
             );
             console.log(next, resultDivHtml);
-            nextUrlHtml = "<div class='next'>see more results</div>";
+            if (infiniteScroll) {
+                //call the check for scroll one
+                console.log("infinite scroll ist an");
+            } else {
+                nextUrlHtml = '<div class="next">see more results</div>';
+            }
+            //
+            console.log("++++ADDING RESULTS CONT nextUrlHtml");
 
-            // console.log("!!!", nextUrlHtml);
-            //nextUrlHtml = "";
-            $(".results-container").append(nextUrlHtml);
+            console.log(nextUrlHtml);
+
+            nextUrlHtml = "";
+
+            if ($(".next")) {
+                console.log("!!!!!", $(".results-container").html());
+                $(".results-container").append(nextUrlHtml);
+            } else {
+                $(".results-container").remove(nextUrlHtml);
+            }
             // " + nextUrl + "
             // $(".results-container").append(nextUrlHtml);
             // $(".next").on("click", twentyMore(nextUrl));
             // use visiblity hidden for "see more results" button
         }
     }
-    function getReslutsHtml(items) {
+    function getResultsHtml(items) {
         if (items.length < 1) {
             console.log("no items found");
             searchMsg = "Sorry, there are no results for: " + userInput;
@@ -181,7 +121,11 @@ console.log("sane...");
         }
         searchMsgHtml = "<div class='results-msg'>" + searchMsg + "</div>";
 
-        $(".results-container").append(searchMsgHtml);
+        if (nextDisplay) {
+            $(".next").remove();
+        } else {
+            $(".results-container").append(searchMsgHtml);
+        }
         for (var i = 0; i < items.length; i++) {
             console.log(searchMsgHtml);
             //$("results-container").add(searchMsgHtml);
@@ -212,11 +156,16 @@ console.log("sane...");
                 "' target='_blank'> <h2>" +
                 h2 +
                 "</h2><p id='seartch-type'>" +
-                "</p></div>";
+                "</p></div></div>";
+
+            resultsDivHtml = "";
 
             //$("results-container").add(searchMsgHtml);
             console.log(resultsDivHtml);
+            $(".next").remove();
             $(".results-container").append(resultsDivHtml);
+
+            //setNextUrl("testing");
         }
         return searchMsgHtml;
         //return names; only for IVANAS trick of generating p tags here and hand them over as "names"
@@ -244,19 +193,20 @@ console.log("sane...");
         }, 5000);
     }
 
-    function secondAjax() {
+    function anotherAjax(nextUrl) {
         console.log("second AJAX running #####");
         $.ajax({
-            url: "https://spicedify.herokuapp.com/spotify",
+            url: nextUrl,
 
             success: function (payload) {
+                nextDisplay = true;
                 payload = payload.artists || payload.albums;
                 nextUrl = null;
                 image = null;
                 console.log("ajax success...");
 
                 // IVANA TRICK resultsContainer.append(getResultsHtml(payload.items));
-                getReslutsHtml(payload.items);
+                getResultsHtml(payload.items);
                 console.log(nextUrl);
                 console.log(payload);
                 //console.log(payload.items[0].name);
