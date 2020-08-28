@@ -97,15 +97,20 @@ let getRelocatedCity = (city1, city2 = { country: "Germany" }) => {
 //// RETRO CODE
 function getNameAndCountryRETRO(cityObj, cityObj2) {
     if (cityObj2 == "undefined") {
-        var cityObj = { name: "", country: "Germany" };
+        var cityObj2 = { name: "", country: "Germany" };
     }
-    var array = [cityObj.name, cityObj.country];
-    return array;
+    // var array = [cityObj.name, cityObj.country];
+    // return array;
+    retrun[(cityObj.name, cityObj.country)];
 }
 
 function getRelocatedCityRETRO(city1, city2) {
-    city1.country = getNameAndCountryRETRO(city2)[1];
-    return city1;
+    var newCity = {};
+    for (var prop in city1) {
+        newCity[prop] = city[prop];
+    }
+    newCity.country = getNameAndCountryRETRO(city2)[1];
+    return newCity;
 }
 
 console.log("retro", getNameAndCountryRETRO(stadt));

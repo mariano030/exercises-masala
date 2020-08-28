@@ -1,0 +1,19 @@
+{
+    "q": "Do you like working with node?",
+    "answers": {
+        "yes": "AWESOME, hava a nice time!",
+        "no": {
+            "q": "Are you willing to do the exercises?",
+            "answers": {
+                "yes": "AWESOME, you've got this.",
+                "no": {
+                    "q": "What are you willing to do then?",
+                    "answers": {
+                        "sleep": "Sleep? Well sleep with the fishes then!",
+                        "nothing": "Well then that's exactly what you will learn: Nothing."
+                    }
+                }
+            }
+        }
+    }
+}
