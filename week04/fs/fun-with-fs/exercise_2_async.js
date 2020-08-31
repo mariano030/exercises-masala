@@ -47,3 +47,7 @@ process.on("beforeExit", (mappedObj) => {
     console.log(stringsAttached);
     fs.writeFileSync(__dirname + "/3._mappedSizs_sync.json", stringsAttached);
 });
+
+// keeping track of a count
+// count = 0 -
+//when finised you decrement
