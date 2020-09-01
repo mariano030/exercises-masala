@@ -2,7 +2,7 @@ console.log("sane...");
 (function () {
     console.log($);
 
-    var submitButton = $("#form");
+    var submitButton = $(".submit-button");
     var nextUrl;
     var image;
     var payload;
@@ -27,6 +27,7 @@ console.log("sane...");
     // getting sick and tired of a friggin' liar
 
     submitButton.on("submit", function (e) {
+        console.log("clicked the search button");
         userInput = $('input[name="search"]').val();
         console.log(userInput);
         dropdownInput = $(".artist-or-album").val();
@@ -146,17 +147,17 @@ console.log("sane...");
                 imageUrl = "assets/generic.png";
             }
 
-            resultsDivHtml =
-                "<div class='one-result-container hover'><div class='result-left'><a href='" +
-                linkUrl +
-                "' target='_blank'><img src='" +
-                imageUrl +
-                "' alt='image' /></a></div><div class='result-right'> <a href='" +
-                linkUrl +
-                "' target='_blank'> <h2>" +
-                h2 +
-                "</h2><p id='seartch-type'>" +
-                "</p></div></div>";
+            resultsDivHtml = "blabla";
+            // "<div class='one-result-container hover'><div class='result-left'><a href='" +
+            // linkUrl +
+            // "' target='_blank'><img src='" +
+            // imageUrl +
+            // "' alt='image' /></a></div><div class='result-right'> <a href='" +
+            // linkUrl +
+            // "' target='_blank'> <h2>" +
+            // h2 +
+            // "</h2><p id='seartch-type'>" +
+            // "</p></div></div>";
 
             resultsDivHtml = "";
 

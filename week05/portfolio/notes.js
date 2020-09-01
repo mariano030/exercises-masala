@@ -21,7 +21,7 @@ path.extname(filePath);
 
 // extension not needed
 // require js file via file name
-const makeFun = require("/example.js"); // include own modules
+const makeFun = require("./example.js"); // include own modules, needs to be with ./ for current directory
 
 // in module file: add to exports object
 module.exports.makeFun = function makeFun() {
