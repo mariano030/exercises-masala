@@ -4,7 +4,9 @@ const http = require("http");
 
 const fs = require("fs");
 
-const stream = fs.ReadStream();
+const stream = fs.ReadStream("requests.txt", "utf-8", (err) =>
+    console.log("error on readstream", err)
+);
 
 const server = http.createServer((request, response) => {
     request.on("error", (err) => console.log("error in the request: ", err));
@@ -34,10 +36,15 @@ const server = http.createServer((request, response) => {
         response.setHeader("content-type", "text/html");
         response.statusCode = 200;
         console.log("first if GET || HEAD");
+        console.log(request.url);
         if (request.method === "GET" && request.url === "/requests.txt") {
             console.log("they want the file!!!");
-            response.setHeader("text/plain");
-
+            response.setHeader("content-type", "text/plain");
+            stream.on("data", function (chunk) {
+                console.log("chunk received");
+                console.log(chunk);
+                response.pipe(chunk);
+            });
         } else if (request.method === "GET") {
             console.log("GET request confirm - response.write");
             response.write(
@@ -84,6 +91,15 @@ const server = http.createServer((request, response) => {
         response.end();
     }
 });
+
+// stream.on("readable", () => {
+//     let chunk;
+//     console.log("stream readable new data received");
+//     //stream.
+//     // while ((null !== chunk = stream.read())) {
+//     //     console.log(`Read ${chunk.length} bytes of data...`);
+//     // }
+// });
 
 server.listen(8081, () => console.log("Server listening!"));
 
