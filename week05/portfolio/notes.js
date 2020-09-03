@@ -29,3 +29,13 @@ module.exports.makeFun = function makeFun() {
 };
 
 // require .json possible for data sets...
+
+
+// do something later // async trick
+function doSomethingLater(cb) {
+    const data = "This is some data";
+    setTimeout(function () {
+        cb(data);
+    }, 1000);
+}
+

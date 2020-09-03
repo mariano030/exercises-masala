@@ -1,0 +1,20 @@
+<div class="spacer"></div>
+<div class="center">
+
+<h1>CUTTING EDGE</br>
+PORTFOLIO</h1>
+
+<p class="subtitle">Don't cut yourself on the sharp edges.</p>
+<div class="spacer2"></div>
+{{#each myProjects}}
+<div class="projects-container">
+    
+        <div class="image-container"><a href="{{path}}"><img class="thumbnail" src="{{path}}/screenshot.jpg"></a></div>
+        <div class="text-container">
+            <h3><a href="{{path}}">{{title}}</a></h3>
+            <p>{{subline}}</p>
+        </div>
+    
+</div>
+{{/each}}
+</div>

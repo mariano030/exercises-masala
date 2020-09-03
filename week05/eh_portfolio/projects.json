@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Connect 4",
+        "subline": "local two player game",
+        "path": "/4gewinnt"
+    },
+    {
+        "title": "Picture Carousel",
+        "subline": "Kitty picture carousel, easily customized for dogs too!",
+        "path": "/kitty-carousel"
+    },
+    {
+        "title": "News Ticker animation",
+        "subline": "Yesterday's news, tomorrow's technology.",
+        "path": "/ticker_jquery"
+    },
+    {
+        "title": "Spotify Search -",
+        "subline": "Ever wanted to search spotify but NOT USE spotify? It's now possible!",
+        "path": "/spotify_redo"
+    }
+]

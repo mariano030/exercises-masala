@@ -2,14 +2,19 @@
 // npm install nodemon
 // npm install express
 // npm install cookie-parser
+
+// npx nodemon index.js
+
+// OR $ nodemon index.js when installed globally
+
 const express = require("express");
+
+const path = require("path");
 
 const basicAuth = require("basic-auth");
 //http.createServer
 const app = express();
 const cookieParser = require("cookie-parser");
-
-let requestedUrl;
 
 /////////////////////////////////////
 //////////// MIDDLEWARE /////////////
@@ -28,31 +33,28 @@ app.use(
 app.use(function log(req, res, next) {
     console.log(req.method, req.url, req.body);
     next(); // every middleware function has to end with next();
-}); // every middleware function has 3
+}); // every middleware function has (at least) 3 arguments req, res & next
 
 app.use(cookieParser()); // adds cookies element to req. object
 
+/// if cookie requestedUrl is not present set it - if present redirect
+//express.static() middleware serves all items in specified folder
+//app.get(express.static("public")); // default first arg is root folder
+app.use("/public", express.static("public")); // first argument is path to serve it on
+
 app.use((req, res, next) => {
-    requestedUrl = req.url;
-    console.log("requestedUrl", requestedUrl);
-    if (req.cookies.cookies === "accepted") {
-        console.log("req.url", req.url);
-        console.log("cookies == accepted");
-    } else if (req.cookies.cookies === "declined" && req.url !== "/cookies") {
-        console.log("cookies declined - access denied ");
-        res.send(`<p>We are sorry to let you know that you can not use this site without accepting cookies.</p> <br>
-                    <a href="/cookies">Click here to change your cookie settings.`);
-        return;
-    } else {
-        console.log("no cookie acceppted found");
-        //console.log("setting cookie");
-        // not here.... res.cookie("ok", "cookie-set");
-        req.url = "/cookies";
-        console.log("");
-        //requestedUrl
-        // requestedUrl = "/cookies";
+    console.log("req.url", req.url);
+    console.log("req.cookies.cookies: ", req.cookies.cookies);
+    if (!req.cookies.requestedUrl) {
+        console.log("no req.url cookie present");
+        console.log("setting cookie to ", req.url);
+        res.cookie("requestedUrl", req.url);
     }
-    next(); //always has to be called at the end of middleware...
+    if (req.cookies.cookies !== "accepted" && req.url !== "/cookies") {
+        res.redirect("/cookies");
+    } else {
+        next(); //always has to be called at the end of middleware...
+    }
 });
 
 // app.use((req, res, next) => {
@@ -66,6 +68,8 @@ app.use((req, res, next) => {
 //////////////////////////////////
 // get http method for the root path
 
+//app.use(express.static(path.join(__dirname, "cookies")));
+
 app.get("/cookies", (req, res) => {
     res.sendFile(__dirname + "/cookies.html");
     //res.sendFile(__dirname + "/cookies.css");
@@ -77,10 +81,6 @@ app.get("/", (req, res) => {
     // .send() checks and sets content-type header
     res.send("<h2>hello world</h2>");
 });
-
-//express.static() middleware serves all items in specified folder
-//app.get(express.static("public")); // default first arg is root folder
-app.use("/public", express.static("public")); // first argument is path to serve it on
 
 app.use(express.static("projects"));
 
@@ -123,10 +123,11 @@ app.post("/cookies", (req, res) => {
     console.log("app.post running");
     console.log("req.body.cookies", req.body.cookies);
     console.log("posted");
-    res.clearCookie("cookies");
     res.cookie("cookies", req.body.cookies);
     //res.send(`you have ${req.body.cookies} the cookies`);
-    res.redirect(requestedUrl);
+    console.log("req.body.requestedUrl", req.body.requestedUrl);
+
+    res.redirect(req.cookies.requestedUrl);
 });
 
 app.get("/super-secret", (req, res) => {
@@ -136,12 +137,13 @@ app.get("/super-secret", (req, res) => {
         res.redirect("/about");
     }
 });
+
 // express has development mode (with debugging features)
 // production mode will leak less info
 
 const auth = function (req, res, next) {
     const creds = basicAuth(req);
-    if (!creds || creds.name != "discoduck" || creds.pass != "opensesame") {
+    if (!creds || creds.name != "discoduckkk" || creds.pass != "opensesame") {
         res.setHeader(
             "WWW-Authenticate",
             'Basic realm="Enter your credentials to see this stuff."'
@@ -156,6 +158,20 @@ app.get("/secret", (req, res) => {
     res.send("<h1> welcome to the secret lair</h1");
 });
 
-app.listen(5555, () => console.log("express listening"));
+app.listen(5555, () => console.log(" ### express listening ### "));
 
 // create middleware check cookie // check route
+
+/// res.redirect(..)
+
+// res.location(..)   // changes the location of the current request aka changes req.url
+
+/// express static is used so the user can load .css and other files
+
+// res.status(301).location(‘../cookie’);
+
+// path.join() /// adds or removes un/neccessary slahes
+
+/// first check in the cookies folder, everything - that way even users withouth cookies can load additional assets from the cookie folder
+
+// <form method="POST"> per default an gleiches dir <form action="/different-folder" method="POST">

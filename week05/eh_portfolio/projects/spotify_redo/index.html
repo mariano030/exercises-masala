@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container-all">
+            <h1 class="title">Spotify Search</h1>
+            <div class="container-search">
+                <input type="text" />
+                <select name="dropdown" id="">
+                    <option value="artist">artist</option>
+                    <option value="album">album</option>
+                </select>
+                <input type="button" value="Search" />
+            </div>
+
+            <div class="conatiner-results">
+                <script id="results-template" type="text/x-handlebars-template">
+                    <div class="entry">
+                        <a href={{link}}>
+                            <h1>
+                                {{title}}
+                            </h1>
+                            <div class="body">
+                                {{body}}
+                            </div>
+                        </a>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="script.js"></script>
+</html>

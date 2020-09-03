@@ -1,0 +1,28 @@
+body {
+    background-color: #264653;
+    margin: 0;
+}
+
+#ticker {
+    position: relative;
+    border: 4px dotted #2a9d8f;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+#headlines {
+    position: absolute;
+    left: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0px dashed #e76f51;
+}
+
+#headlines a {
+    padding-right: 30px;
+    color: #f4a261;
+}
+
+a {
+    text-decoration: none;
+}
