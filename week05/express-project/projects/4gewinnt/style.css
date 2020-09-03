@@ -1,0 +1,414 @@
+body {
+    /* background-color: hotpink; */
+    background-color: aliceblue;
+}
+
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.game-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    border: 20px solid lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slot {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.hole {
+    height: 80px;
+    width: 80px;
+    /* background-color: orange; */
+    border: 40px solid lightblue;
+
+    border-radius: 50%;
+    transform: translate(-30px, -30px);
+}
+
+.player1 {
+    background-image: url("assets/slot_red.png");
+    /* background-color: lightcoral; */
+}
+
+.player2 {
+    background-image: url("assets/slot_yellow.png");
+    /* background-color: lightyellow; */
+}
+
+.slot-win-p1 {
+    background-image: url("assets/slot_red_won.png");
+}
+
+.slot-win-p2 {
+    background-image: url("assets/slot_yellow_won.png");
+}
+
+.lastMove {
+}
+
+.disabled {
+    background-color: lightblue;
+}
+
+.sidebar {
+    display: flex;
+
+    height: 600px;
+    width: 200px;
+    background-color: lightblue;
+}
+
+.border {
+    background-color: lightblue;
+    width: 20px;
+}
+
+.sidecontainer {
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    width: 100%;
+}
+.sidecontainer div {
+    margin: 10px 0px 0px 0px;
+}
+
+#attribution {
+    font-size: small;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    /* line-height: 90%; */
+    text-align: left;
+    padding: -40px 20px 5px 20px;
+    font-size: 12em;
+    font-weight: 900;
+}
+h2 {
+    padding: 0px 20px 0px 20px;
+    font-weight: 900;
+}
+
+h4 {
+    padding: 128px 0px 0px 0px;
+    position: absolute;
+    z-index: 2;
+    top: 30;
+    color: lightblue;
+}
+
+.message-box {
+    transition-property: top;
+    transition-duration: 1s;
+    visibility: hidden;
+    background-color: lightblue;
+    border: 5px solid aliceblue;
+    position: absolute;
+    top: -10vh;
+    right: 45vw;
+    /* height: 10vh; */
+    /* width: 15vw; */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    height: 140px;
+}
+
+#score-p1 {
+    border-radius: 50%;
+    color: lightgoldenrodyellow;
+    /* border: 2px solid lightcoral; */
+    background-color: lightcoral;
+    padding: 6px 10px 6px 10px;
+}
+
+#score-p2 {
+    padding: 0px;
+    border-radius: 50%;
+    color: lightcoral;
+    /* border: 2px solid lightgoldenrodyellow; */
+    background-color: lightgoldenrodyellow;
+    padding: 6px 10px 6px 10px;
+}
+
+.cant-click {
+    top: 0px;
+    visibility: hidden;
+    transition-property: visibility;
+    transition-duration: 1s;
+    position: absolute;
+    background-color: grey;
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+}
+
+.visible {
+    visibility: visible;
+    transition-property: visibility;
+    transition-duration: 2s;
+}
+
+.slide-down {
+    top: 45vh;
+}
+#ok {
+    border: solid 2px aliceblue;
+    padding: 3px;
+    margin: 10px 0px 10rpx 0px;
+}
+
+.button {
+    background-color: aliceblue;
+    color: lightblue;
+    border: 2px solid;
+    background-color: aliceblue;
+    padding: 3px;
+    width: 70%;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#score-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.score-box {
+    height: 50px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#spacer {
+    flex-grow: 5;
+}
+
+.current-player {
+    text-align: center;
+
+    /* border: 5px solid aliceblue; */
+    font-size: 2em;
+    padding: 10px 40px 10px 40px;
+    /* height: 30px;
+    width: 30px; */
+    /* border: 5px solid white; */
+}
+
+#win-message {
+    text-align: center;
+    padding: 3px 5px 10px;
+}
+
+.player1-win {
+    border: 5px solid lightcoral;
+}
+
+.player2-win {
+    border: 5px solid lightgoldenrodyellow;
+}
+
+a {
+    text-decoration: none;
+}
+
+#background {
+    -moz-animation-name: fadeOut;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -moz-animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+    -ms-animation-duration: 4s;
+    animation-duration: 4s;
+    -moz-animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    -ms-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -moz-animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    top: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+
+    transition-property: opacity;
+    transition-duration: 4s;
+    opacity: 100%;
+    width: 100%;
+    height: 100%;
+}
+#four {
+    visibility: inherit;
+    z-index: 5;
+    font-weight: 900;
+    font-size: 25em;
+    color: white;
+    -moz-animation-name: fadeOut;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -moz-animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+    -ms-animation-duration: 3s;
+    animation-duration: 3s;
+    -moz-animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    -ms-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -moz-animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+#connect {
+    visibility: inherit;
+    position: absolute;
+    top: 390px;
+    z-index: 25;
+    color: lightblue;
+    font-size: 2.5em;
+    font-weight: 900;
+    -moz-animation-name: fadeOut;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -moz-animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+    -ms-animation-duration: 3s;
+    animation-duration: 3s;
+    -moz-animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    -ms-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -moz-animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@-ms-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

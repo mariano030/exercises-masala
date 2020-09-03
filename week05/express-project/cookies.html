@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cookies</title>
+        <link rel="stylesheet" href="cookies.css" />
+    </head>
+    <body>
+        <div class="container">
+            <img src="public/cookie-monster.jpg" />
+            <h3>To use this site you are required to accept cookies.</h3>
+            <div class="flex-row">
+                <form action="/" method="POST">
+                    <input
+                        type="radio"
+                        id="cookies1"
+                        name="cookies"
+                        value="accepted"
+                        unchecked
+                    />
+                    <label for="cookies">I accept all cookies.</label>
+                    <input
+                        type="radio"
+                        id="cookies2"
+                        name="cookies"
+                        value="declined"
+                        unchecked
+                    />
+
+                    <label for="cookies">Thank you, but I am not hungry.</label>
+                    <input
+                        type="submit"
+                        id="button"
+                        name="button"
+                        value="omnom nom"
+                    />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
