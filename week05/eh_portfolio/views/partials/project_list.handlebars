@@ -1,0 +1,21 @@
+<div class="spacer"></div>
+<div class="center">
+
+
+<h1>{{title}}</h1>
+<div class="spacer2"></div>
+{{#each myProjects}}
+<div class="projects-container {{styleCurrent path ../selectedProject}}">
+    {{#if ../image}}
+        <div class="image-container"><a href="{{path}}"><img class="thumbnail" src="/{{path}}/screenshot.jpg"></a></div>
+    {{/if}}
+        <div class="text-container">
+            <h3 class=" "><a href="/projects/{{path}}">{{title}}</a></h3>
+            {{#if ../subline}}
+            <p>{{subline}}</p>
+            {{/if}}
+        </div>
+    
+</div>
+{{/each}}
+</div>

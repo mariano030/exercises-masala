@@ -1,11 +1,10 @@
 * {
-    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: #d05353;
 }
 
 body {
-    background-color: #f9e784;
+    background-color: #fefefe;
 }
 
 .spacer {
@@ -23,7 +22,7 @@ a {
 }
 
 a:hover {
-    color: #f9e784;
+    color: #fefefe;
 }
 
 .center {
@@ -49,10 +48,14 @@ h1:hover {
     color: #d05353;
 }
 h3 {
+    margin: 5px 5px 5px 10px;
+}
+.selected h3 {
+    color: #fefefe;
 }
 
 h3:hover {
-    color: #f9e784;
+    color: #fefefe;
 }
 .subtitle {
     color: #d05353;
@@ -61,7 +64,7 @@ h3:hover {
 }
 
 .projects-container {
-    background-color: #fbed9c;
+    background-color: #e1e6e2;
     color: white;
     margin: 20px;
     display: flex;
@@ -70,28 +73,56 @@ h3:hover {
 
 .projects-container:hover a {
     background-color: #cc5b5b;
-    color: #f9e784;
+    color: #fefefe;
 }
 .projects-container:hover p {
     background-color: #cc5b5b;
-    color: #f9e784;
+    color: #fefefe;
 }
 
 .projects-container:hover {
     background-color: #cc5b5b;
-    color: #f9e784;
+    color: #e1e6e2;
 }
 
 .text-container {
-    margin: 40px;
+    margin: px;
 }
 
 .thumbnail {
-    width: 190px;
-    height: 150px;
+    width: 200px;
+
     margin: 15px;
 }
 
 p {
-    margin: 5px;
+    margin: 10px;
+}
+
+.launch_button {
+    background-color: #cc5b5b;
+    color: #fefefe;
+    padding: 5px 10px 5px 10px;
+    margin: 20px;
+}
+
+.project_info {
+    color: black;
+    width: 60vw;
+}
+
+.hero {
+    align-self: center;
+    width: 70%;
+}
+
+.selected {
+    color: #fefefe;
+    background-color: #cc5b5b;
+}
+
+.footer {
+    font-weight: 200;
+    letter-spacing: 0.5em;
+    font-size: 0.55em;
 }

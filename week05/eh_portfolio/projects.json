@@ -1,22 +1,26 @@
 [
     {
         "title": "Connect 4",
-        "subline": "local two player game",
-        "path": "/4gewinnt"
+        "subline": "A local two player game. Play with your friends or against your enemies.",
+        "path": "4gewinnt",
+        "description": "This project is a modern rendition of the classic 80ies game. The upside is, you don't have to pick up any pices of the floor and can't lose any of them. On a technical note, this was realized with jQuery..."
     },
     {
         "title": "Picture Carousel",
         "subline": "Kitty picture carousel, easily customized for dogs too!",
-        "path": "/kitty-carousel"
+        "path": "kitty-carousel",
+        "description": "A standard picture carousel as comonly used on websites where different pictures share the hero position. Watch all pictures animate on and of or select a specific picture to be displayed."
     },
     {
         "title": "News Ticker animation",
         "subline": "Yesterday's news, tomorrow's technology.",
-        "path": "/ticker_jquery"
+        "path": "ticker_jquery",
+        "description": "This mini demo lets a preselected collection of news headlines scroll through ad infinitum. Remeber when the web was full of these? You know how trends work, prepare for the ticker's comeback!"
     },
     {
         "title": "Spotify Search -",
         "subline": "Ever wanted to search spotify but NOT USE spotify? It's now possible!",
-        "path": "/spotify_redo"
+        "path": "spotify_redo",
+        "description": "Spotify's powerful API allows us to send search querries directly to them and render the results on our own website. Why is this useful? Well, you tell me!"
     }
 ]
