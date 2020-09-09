@@ -1,0 +1,68 @@
+imagine possilbe future features // uses
+
+structure code so it can be easily refactored
+
+to not do to much for imagines features
+
+
+node routes very simple!
+route calling a single function / get stuff and responde
+(ideally - not easy to maintain)
+
+the less a function knows the more flexible it is
+but keep it understandable
+
+hiding complexity: 
+eg. one publicly available getTweets(exports.module) and inside 
+two other locally private funtions that are more complex
+
+move knowledge (as best as possilbe) of twitter api in twAPI.js
+
+////// TESTING
+
+continous integration - automated tests - merge at push of button - 
+enables automated live pushing
+
+tests can fail - because the tests are faulty... 
+
+the code that we are testing is -under test
+test coverage - how much of your code there is tests for?
+
+test driven develpoment:
+it's 100% coverage
+you write the tests before you write the thing you are testing
+
+testing environments:
+- mocha for node
+- jest for js/react
+
+
+assert(2+2 == 4) // nothing happens, as assertion is true
+assert(2+4 == 4) // uncaught assertionError
+
+testing with JEST
+increase.js
+increase.test.js
+	need to require the original file - functions need to be part of export.module
+
+call test() with string(description/identifier) and function (what you wanna test)
+test("passing 2 gives 2000000", () => increase())
+
+for asynchronous functions you need to tell jest to wait
+fn() with callbacks need .done()
+mocked correctly - it only fails because the thing you are testing has a problem
+mocking is limiting the test - isolating the stuff wou wanna test
+dummy functions can be focred to return thing (resolves) in a certain way
+
+
+require("blabla.js") - put's it into the ram and using it again does not require another 
+read on the location of blabla.js
+
+
+
+
+
+// make rating "how to you feel about this" understandable and staight forward
+// better organization of when (e.g. career encounters don't take place, course starts at 11:30)
+   ---> slack!   // asking all teachers none knows...
+
