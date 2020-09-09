@@ -1,13 +1,14 @@
 module.exports = function fn(arg) {
-    let returnVal = []
+    let returnVal = [];
     if (!Array.isArray(arg)) {
         var newArg = [arg];
-        arg = newArg.slice;
+        arg = newArg.slice();
     }
     for (let i = 0; i < arg.length; i++) {
-        if (arg[i].typeOf == "array") {
-            for ( let x = arg[i].length -1; x >= 0; x--) {
-                var newString +=  arg[i][x];
+        if (Array.isArray(arg[i])) {
+            var newString;
+            for (let x = arg[i].length - 1; x >= 0; x--) {
+                newString += arg[i][x];
                 returnVal.push(newString);
             }
             if (newString.length > 1) {
