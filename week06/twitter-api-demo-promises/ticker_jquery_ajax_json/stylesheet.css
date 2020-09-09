@@ -1,0 +1,37 @@
+body {
+    background-color: lightblue;
+    margin: 0;
+}
+
+#ticker {
+    position: relative;
+    border: 4px dotted chocolate;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+#headlines {
+    position: absolute;
+    left: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px dashed tomato;
+}
+
+#headlines a {
+    padding-right: 30px;
+    color: black;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+img#json {
+    height: 300px;
+    width: 300px;
+}
