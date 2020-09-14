@@ -1,24 +1,28 @@
 module.exports = function fn(arg) {
     let returnVal = [];
     if (!Array.isArray(arg)) {
+        var output = [];
         var newArg = [arg];
         arg = newArg.slice();
     }
     for (let i = 0; i < arg.length; i++) {
-        if (Array.isArray(arg[i])) {
-            var newString;
-            for (let x = arg[i].length - 1; x >= 0; x--) {
-                newString += arg[i][x];
-                returnVal.push(newString);
-            }
-            if (newString.length > 1) {
-                newString = newString.join();
-            }
-            return newString;
-        } else {
+        if (arg[i].typeOf != "string") {
             return null;
         }
+        for (let x = arg[i].length - 1; x >= 0; x--) {
+            newString += arg[i][x];
+            returnVal.push(newString);
+        }
+        if (newString.length > 1) {
+            newString = newString.join();
+        }
+        output.push(newString);
     }
+    if (arg.length == 0) {
+        arg.concat();
+    }
+    return arg;
+    s;
     console.log(arg);
 
     // else if (arg.typeOf != "string") {
